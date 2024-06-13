@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "113595036036",
+    "project_id": "rythu-mithra-7e444",
+    "storage_bucket": "rythu-mithra-7e444.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113595036036:android:1cb64b9ad053cb45c12dd1",
+        "android_client_info": {
+          "package_name": "com.example.rythu_mithra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113595036036-0pdba9d8gpsrio7gq2a4818nt1nmfrr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0hY-GjvKzbDlUfHsn4rB316vfweAa58s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113595036036-0pdba9d8gpsrio7gq2a4818nt1nmfrr0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "113595036036-6ln8oe0g37a4bvdca79h6gfcl13q6qsn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rythuMithra"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
