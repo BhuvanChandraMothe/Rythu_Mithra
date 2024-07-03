@@ -9,7 +9,7 @@ import 'cart_page.dart';
 import 'home_page.dart';
 
 class MarketHomePage extends StatefulWidget {
-  const MarketHomePage({super.key});
+  const MarketHomePage({Key? key}) : super(key: key);
 
   @override
   State<MarketHomePage> createState() => _MarketHomePageState();
@@ -40,6 +40,15 @@ class _MarketHomePageState extends State<MarketHomePage> {
         _location = 'Unable to fetch location';
       });
     }
+  }
+
+  void _showSnackBarMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 2),
+      ),
+    );
   }
 
   @override
@@ -80,6 +89,7 @@ class _MarketHomePageState extends State<MarketHomePage> {
                 icon: Icon(Icons.home),
               ),
             ),
+            
           ),
         ],
       ),
@@ -100,15 +110,8 @@ class _MarketHomePageState extends State<MarketHomePage> {
         children: [
           const SizedBox(height: 48),
 
-          // good morning text
-          // const Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 24.0),
-          //   child: Text('Good morning,'),
-          // ),
-
           const SizedBox(height: 4),
 
-          // Let's order fresh items for you
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
@@ -129,18 +132,16 @@ class _MarketHomePageState extends State<MarketHomePage> {
 
           const SizedBox(height: 24),
 
-          // categories -> horizontal listview
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
-              "Dont panic, because they are organic !",
+              "Don't panic, because they are organic!",
               style: GoogleFonts.notoSerif(
                 fontSize: 18,
               ),
             ),
           ),
 
-          // fresh items grid view -> show all items
           Expanded(
             child: Consumer<CartModel>(
               builder: (context, value, child) {
@@ -157,9 +158,12 @@ class _MarketHomePageState extends State<MarketHomePage> {
                       itemPrice: value.shopItems[index][1],
                       imagePath: value.shopItems[index][2],
                       color: value.shopItems[index][3],
-                      onPressed: () =>
-                          Provider.of<CartModel>(context, listen: false)
-                              .addItemToCart(index),
+                      onPressed: () {
+                        Provider.of<CartModel>(context, listen: false)
+                            .addItemToCart(index);
+                        _showSnackBarMessage(
+                            '${value.shopItems[index][0]} added to cart');
+                      },
                     );
                   },
                 );
